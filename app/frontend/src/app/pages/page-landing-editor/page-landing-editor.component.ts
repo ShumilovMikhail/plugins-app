@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { HeaderService } from '../../services/header.service';
 import { PluginsService } from '../../services/plugins.service';
 import { CommonModule } from '@angular/common';
+import { ArticleService } from '../../services/article.service';
 
 @Component({
   selector: 'app-page-landing-editor',
@@ -14,6 +15,7 @@ import { CommonModule } from '@angular/common';
 export class PageLandingEditorComponent implements OnInit {
   private readonly headerService = inject(HeaderService);
   protected readonly pluginsService = inject(PluginsService);
+  protected readonly articleService = inject(ArticleService);
 
   ngOnInit(): void {
     this.headerService.pageName.set('Landing Editor');

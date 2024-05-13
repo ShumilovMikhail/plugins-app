@@ -1,0 +1,19 @@
+<div class="flex justify-center mt-20">
+  <div class="flex flex-col gap-4 w-full max-w-4xl">
+    @if (form) {
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <textarea
+          class="w-full p-3 border rounded"
+          rows="10"
+          formControlName="json"
+        ></textarea>
+        <div class="flex items-center gap-4 self-end">
+          <a routerLink="/editor">BACK</a>
+          <button class="border border-black px-4 py-2" type="submit">
+            SAVE
+          </button>
+        </div>
+      </form>
+    }
+  </div>
+</div>
