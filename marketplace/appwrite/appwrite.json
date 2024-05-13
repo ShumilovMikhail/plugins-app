@@ -1,0 +1,24 @@
+{
+    "projectId": "663f78fa00310899ada8",
+    "projectName": "plugins-app",
+    "functions": [
+        {
+            "$id": "1",
+            "name": "hello-world",
+            "runtime": "node-18.0",
+            "execute": [],
+            "events": [],
+            "schedule": "",
+            "timeout": 15,
+            "enabled": true,
+            "logging": true,
+            "entrypoint": "src/main.js",
+            "commands": "npm install",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "path": "functions/hello-world"
+        }
+    ]
+}
