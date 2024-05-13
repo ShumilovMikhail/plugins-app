@@ -15,4 +15,4 @@ export class PageLandingEditorComponent implements OnInit {
   ngOnInit(): void {
     this.headerService.pageName.set('Landing Editor');
   };
-};
+}

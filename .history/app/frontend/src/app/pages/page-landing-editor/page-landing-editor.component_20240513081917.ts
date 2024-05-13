@@ -13,6 +13,6 @@ export class PageLandingEditorComponent implements OnInit {
   private readonly headerService = inject(HeaderService);
 
   ngOnInit(): void {
-    this.headerService.pageName.set('Landing Editor');
+    this.headerService.pageName.set('Landing editor');
   };
-};
+}

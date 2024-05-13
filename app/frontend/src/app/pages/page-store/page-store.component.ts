@@ -4,15 +4,15 @@ import { RouterModule } from '@angular/router';
 import { HeaderService } from '../../services/header.service';
 
 @Component({
-  selector: 'app-page-landing-editor',
+  selector: 'app-page-store',
   standalone: true,
   imports: [RouterModule],
-  templateUrl: './page-landing-editor.component.html',
+  templateUrl: './page-store.component.html',
 })
-export class PageLandingEditorComponent implements OnInit {
+export class PageStoreComponent implements OnInit {
   private readonly headerService = inject(HeaderService);
 
   ngOnInit(): void {
-    this.headerService.pageName.set('Landing Editor');
+    this.headerService.pageName.set('Plugins store');
   };
 };

@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { HeaderService } from '../../services/header.service';
@@ -9,10 +9,10 @@ import { HeaderService } from '../../services/header.service';
   imports: [RouterModule],
   templateUrl: './page-landing-editor.component.html',
 })
-export class PageLandingEditorComponent implements OnInit {
+export class PageLandingEditorComponent {
   private readonly headerService = inject(HeaderService);
 
   ngOnInit(): void {
-    this.headerService.pageName.set('Landing Editor');
+    this.headerService.pageName.set('Landing editor');
   };
-};
+}
