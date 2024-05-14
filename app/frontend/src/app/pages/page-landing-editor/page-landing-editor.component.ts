@@ -1,16 +1,17 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 import { HeaderService } from '../../services/header.service';
 import { PluginsService } from '../../services/plugins.service';
-import { CommonModule } from '@angular/common';
 import { ArticleService } from '../../services/article.service';
+import { ArticleComponent } from './article/article.component';
 
 @Component({
   selector: 'app-page-landing-editor',
   standalone: true,
-  imports: [RouterModule, CommonModule],
   templateUrl: './page-landing-editor.component.html',
+  imports: [RouterModule, CommonModule, ArticleComponent],
 })
 export class PageLandingEditorComponent implements OnInit {
   private readonly headerService = inject(HeaderService);

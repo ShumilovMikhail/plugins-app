@@ -1,16 +1,18 @@
 @if (pluginsService.plugins$ | async; as plugins) {
   @if (plugins.length) {
-    {{ articleService.article$ | async | json }}
+    @if (articleService.article$ | async; as article) {
+      <app-article [article]="article"></app-article>
+    } @else {
+      loading article...
+    }
   } @else {
     <div class="flex flex-col items-center gap-8 mt-20">
       <img src="assets/empty-page-question.png" alt="empty-page-questions" />
 
       <p class="text-center">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem,
-        voluptate saepe. Repellendus ab optio nihil suscipit nostrum. Atque
-        <br />
-        culpa sunt tempora ratione molestias sequi, tenetur minus suscipit odit
-        dolores rerum!
+        To start editing the article, you first need to install at least one
+        plugin. <br />
+        To do this, go to the plugins page.
       </p>
 
       <button routerLink="/store" class="px-4 py-2 border rounded border-black">
@@ -19,5 +21,5 @@
     </div>
   }
 } @else {
-  loading...
+  loading plugins...
 }
