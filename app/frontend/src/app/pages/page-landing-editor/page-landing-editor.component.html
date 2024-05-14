@@ -3,7 +3,7 @@
     @if (articleService.article$ | async; as article) {
       <div class="flex">
         <app-plugins-panel [plugins]="plugins"></app-plugins-panel>
-        <app-article [article]="article"></app-article>
+        <app-article class="flex-1" [article]="article"></app-article>
       </div>
     } @else {
       loading article...
