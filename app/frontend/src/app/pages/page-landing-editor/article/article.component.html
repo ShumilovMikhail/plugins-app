@@ -1,1 +1,3 @@
-<div appPluginsHost></div>
+@for (contentItem of article; track contentItem) {
+  <app-ref [contentItem]="contentItem"></app-ref>
+}
