@@ -9,13 +9,14 @@ import {
   inject,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { combineLatestWith } from 'rxjs';
 
 import { ArticleType } from '../../../types/article.type';
 import { PluginsHostDirective } from './plugins-host.directive';
 import { ArticleService } from '../../../services/article.service';
 import { ContentItem } from '../../../types/contentItem.interface';
-import { PluginsMap } from './plugins-map-injection-token';
-import { pluginsMap } from './plugins-map';
+import { PluginsService } from '../../../services/plugins.service';
+import { PluginsMap } from '../../../types/pluginsMap.interface';
 
 interface PluginComponentType {
   data: any;
@@ -25,39 +26,30 @@ interface PluginComponentType {
   selector: 'app-article',
   standalone: true,
   imports: [CommonModule, PluginsHostDirective],
-  providers: [
-    {
-      provide: PluginsMap,
-      useValue: pluginsMap,
-    },
-  ],
   templateUrl: './article.component.html',
 })
 export class ArticleComponent implements AfterViewInit {
   @ViewChild(PluginsHostDirective, { static: true })
   private readonly pluginsHost!: PluginsHostDirective;
   @Input({ required: true }) article!: ArticleType;
-
-  private readonly pluginsMap = inject(PluginsMap);
   private readonly articleService = inject(ArticleService);
+  private readonly pluginsService = inject(PluginsService);
 
   ngAfterViewInit(): void {
     const container: ViewContainerRef = this.pluginsHost.viewContainerRef;
-    this.articleService.article$.subscribe((article: ArticleType) => {
-      container.clear();
+    this.articleService.article$
+      .pipe(combineLatestWith(this.pluginsService.plugins$))
+      .subscribe(([article, pluginsMap]: [ArticleType, PluginsMap]) => {
+        container.clear();
 
-      article.forEach((contentItem: ContentItem) => {
-        const foundPlugin = this.pluginsMap[contentItem.pluginSlug];
+        article.forEach((contentItem: ContentItem) => {
+          const foundPlugin = pluginsMap[contentItem.pluginSlug];
 
-        if (foundPlugin) {
-          this.loadComponent(
-            container,
-            foundPlugin as Type<PluginComponentType>,
-            contentItem.data,
-          );
-        }
+          if (foundPlugin) {
+            this.loadComponent(container, foundPlugin.componentType, contentItem.data);
+          }
+        });
       });
-    });
   }
 
   private loadComponent(
