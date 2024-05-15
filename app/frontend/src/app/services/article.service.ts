@@ -1,20 +1,35 @@
 import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, delay, shareReplay } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable, switchMap, tap } from 'rxjs';
 
 import { ArticleType } from '../types/article.type';
-import { DataStorageService } from './data-storage.service';
-import { DataStorageTypes } from '../types/dataStorageTypes';
 
 @Injectable({ providedIn: 'root' })
 export class ArticleService {
-  private readonly dataStorageService = inject(DataStorageService);
-  private readonly article = new BehaviorSubject<ArticleType>(
-    (this.dataStorageService.getItem(DataStorageTypes.ARTICLE) as ArticleType) || [],
-  );
-  public readonly article$ = this.article.asObservable().pipe(delay(100), shareReplay(1));
+  private readonly http = inject(HttpClient);
+  private readonly cachedArticle = new BehaviorSubject<ArticleType | null>(null);
+  public readonly article$: Observable<ArticleType | null> = this.cachedArticle
+    .asObservable()
+    .pipe(
+      switchMap((cachedArticle) => {
+        if (!cachedArticle) {
+          console.log(cachedArticle);
+          this.http
+            .get<ArticleType>('/api/article')
+            .pipe(
+              tap((article) => {
+                console.log(article);
+                this.cachedArticle.next(article);
+              }),
+            )
+            .subscribe(() => {});
+        }
+        return this.cachedArticle.asObservable();
+      }),
+    );
 
   public updateArticle(article: ArticleType): void {
-    this.article.next(article);
-    this.dataStorageService.setItem(DataStorageTypes.ARTICLE, article);
+    this.http.post<ArticleType>('/api/article', article).subscribe();
+    this.cachedArticle.next(article);
   }
 }

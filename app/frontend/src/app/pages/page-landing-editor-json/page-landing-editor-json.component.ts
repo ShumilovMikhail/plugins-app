@@ -29,9 +29,13 @@ export class PageLandingEditorJsonComponent implements OnInit {
   protected form!: FormGroup<EditorJSONForm>;
 
   ngOnInit(): void {
-    this.articleService.article$.pipe(take(1)).subscribe((article: ArticleType) => {
-      this.initializeForm(article);
-    });
+    this.articleService.article$
+      .pipe(take(1))
+      .subscribe((article: ArticleType | null) => {
+        if (article) {
+          this.initializeForm(article);
+        }
+      });
   }
 
   onSubmit(): void {
