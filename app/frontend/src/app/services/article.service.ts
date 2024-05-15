@@ -9,16 +9,11 @@ import { DataStorageTypes } from '../types/dataStorageTypes';
 export class ArticleService {
   private readonly dataStorageService = inject(DataStorageService);
   private readonly article = new BehaviorSubject<ArticleType>(
-    (this.dataStorageService.getItem(
-      DataStorageTypes.ARTICLE,
-    ) as ArticleType) || [],
+    (this.dataStorageService.getItem(DataStorageTypes.ARTICLE) as ArticleType) || [],
   );
-  public readonly article$ = this.article
-    .asObservable()
-    .pipe(delay(100), shareReplay(1));
+  public readonly article$ = this.article.asObservable().pipe(delay(100), shareReplay(1));
 
-  public updateArticle(json: string): void {
-    const article: ArticleType = JSON.parse(json);
+  public updateArticle(article: ArticleType): void {
     this.article.next(article);
     this.dataStorageService.setItem(DataStorageTypes.ARTICLE, article);
   }

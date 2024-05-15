@@ -1,3 +1,19 @@
-@for (contentItem of article; track contentItem) {
-  <app-ref [contentItem]="contentItem"></app-ref>
-}
+<div
+  class="example-list"
+  id="article"
+  cdkDropList
+  [cdkDropListConnectedTo]="['plugins']"
+  #doneList="cdkDropList"
+  [cdkDropListData]="article"
+  (cdkDropListDropped)="drop($event)"
+>
+  @if (article.length) {
+    @for (contentItem of article; track contentItem) {
+      <app-ref [contentItem]="contentItem" cdkDrag></app-ref>
+    }
+  } @else {
+    <div class="p-8 text-center border border-dashed text-3xl nt-1 mr-1">
+      Drag and Drop any plugin here
+    </div>
+  }
+</div>

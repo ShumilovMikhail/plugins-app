@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { CdkDropListGroup } from '@angular/cdk/drag-drop';
 
 import { HeaderService } from '../../services/header.service';
 import { PluginsService } from '../../services/plugins.service';
@@ -19,6 +20,7 @@ import { MapPluginsToListPipe } from './map-plugins-to-list.pipe';
     ArticleComponent,
     PluginsPanelComponent,
     MapPluginsToListPipe,
+    CdkDropListGroup,
   ],
 })
 export class PageLandingEditorComponent implements OnInit {

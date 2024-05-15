@@ -21,6 +21,7 @@ interface PluginComponentType {
 @Component({
   selector: 'app-ref',
   standalone: true,
+  styles: [':host {display: block}'],
   imports: [PluginsHostDirective],
   templateUrl: './ref.component.html',
 })

@@ -1,6 +1,15 @@
-<div class="w-[300px] shadow mr-1 flex flex-col gap-2">
+<div
+  class="w-[300px] shadow mr-1 flex flex-col gap-2"
+  id="plugins"
+  cdkDropList
+  [cdkDropListConnectedTo]="['article']"
+>
   @for (plugin of plugins; track $index) {
-    <div cdkDrag class="border rounded p-4">
+    <div
+      class="border rounded p-4"
+      cdkDrag
+      [cdkDragData]="plugin | mapToContentItem"
+    >
       <span>{{ plugin.slug }}</span>
     </div>
   }
