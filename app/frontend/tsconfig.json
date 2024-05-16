@@ -18,6 +18,9 @@
       "plugin-banner-slider": [
         "./dist/plugin-banner-slider"
       ],
+      "plugin-contact-info": [
+        "./dist/plugin-contact-info"
+      ],
       "plugin-heading": [
         "./dist/plugin-heading"
       ],
