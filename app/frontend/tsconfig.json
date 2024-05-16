@@ -21,6 +21,9 @@
       "plugin-heading": [
         "./dist/plugin-heading"
       ],
+      "plugin-list-of-products": [
+        "./dist/plugin-list-of-products"
+      ],
       "@plugins/common-libraries": [
         "./dist/plugins-common-libraries"
       ],

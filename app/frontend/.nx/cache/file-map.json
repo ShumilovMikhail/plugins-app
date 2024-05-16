@@ -62,6 +62,9 @@
     "plugin-banner-slider": [
       "./dist/plugin-banner-slider"
     ],
+    "plugin-heading": [
+      "./dist/plugin-heading"
+    ],
     "@plugins/common-libraries": [
       "./dist/plugins-common-libraries"
     ],
@@ -107,7 +110,7 @@
       },
       {
         "file": "angular.json",
-        "hash": "3236338147683704650"
+        "hash": "11845750141703743161"
       },
       {
         "file": "package-lock.json",
@@ -187,6 +190,42 @@
       },
       {
         "file": "projects/plugin-banner/tsconfig.spec.json",
+        "hash": "6187331034101419811"
+      },
+      {
+        "file": "projects/plugin-heading/.eslintrc.json",
+        "hash": "14363505610686800042"
+      },
+      {
+        "file": "projects/plugin-heading/README.md",
+        "hash": "11533248855206633035"
+      },
+      {
+        "file": "projects/plugin-heading/ng-package.json",
+        "hash": "1012806366579685920"
+      },
+      {
+        "file": "projects/plugin-heading/package.json",
+        "hash": "12555320739821450787"
+      },
+      {
+        "file": "projects/plugin-heading/src/lib/plugin-heading.component.ts",
+        "hash": "15866154153158137107"
+      },
+      {
+        "file": "projects/plugin-heading/src/public-api.ts",
+        "hash": "1340197953904543429"
+      },
+      {
+        "file": "projects/plugin-heading/tsconfig.lib.json",
+        "hash": "3854248313799891276"
+      },
+      {
+        "file": "projects/plugin-heading/tsconfig.lib.prod.json",
+        "hash": "6958467553555132988"
+      },
+      {
+        "file": "projects/plugin-heading/tsconfig.spec.json",
         "hash": "6187331034101419811"
       },
       {
@@ -479,7 +518,7 @@
       },
       {
         "file": "tsconfig.json",
-        "hash": "17708882264095088204"
+        "hash": "16447805410746453877"
       },
       {
         "file": "tsconfig.spec.json",
