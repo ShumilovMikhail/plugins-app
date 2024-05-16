@@ -14,6 +14,7 @@ import { MapPluginsToListPipe } from './map-plugins-to-list.pipe';
   selector: 'app-page-landing-editor',
   standalone: true,
   templateUrl: './page-landing-editor.component.html',
+  // styles: [':host {display:flex; flex:1; width: 100%; height: 100%;}'],
   imports: [
     RouterModule,
     CommonModule,

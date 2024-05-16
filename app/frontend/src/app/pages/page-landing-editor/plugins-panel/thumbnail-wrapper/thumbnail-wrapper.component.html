@@ -1,12 +1,5 @@
 <div #wrapper class="overflow-hidden border">
-  <div
-    #thumbnail
-    [ngStyle]="{
-      transform: 'scale(' + SCALE + ')',
-      width: RENDER_WIDTH + 'px'
-    }"
-    class="origin-top-left"
-  >
+  <div #thumbnail class="origin-top-left">
     <ng-content></ng-content>
   </div>
 </div>

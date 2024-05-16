@@ -1,5 +1,5 @@
 import {
-  AfterViewInit,
+  AfterContentInit,
   Component,
   ComponentRef,
   Input,
@@ -25,13 +25,13 @@ interface PluginComponentType {
   imports: [PluginsHostDirective],
   templateUrl: './ref.component.html',
 })
-export class RefComponent implements AfterViewInit {
+export class RefComponent implements AfterContentInit {
   @Input({ required: true }) contentItem!: ContentItem;
   @ViewChild(PluginsHostDirective, { static: true })
   private readonly pluginsHost!: PluginsHostDirective;
   private readonly pluginsService = inject(PluginsService);
 
-  ngAfterViewInit(): void {
+  ngAfterContentInit(): void {
     const container: ViewContainerRef = this.pluginsHost.viewContainerRef;
     container.clear();
     this.pluginsService.plugins$.subscribe((pluginsMap: PluginsMap) => {
