@@ -1,4 +1,3 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -11,12 +10,10 @@
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "paths": {
-      "my-lib": [
-        "./dist/my-lib"
-      ],
-      "plugin-logo": [
-        "./dist/plugin-logo"
-      ]
+      "my-lib": ["./dist/my-lib"],
+      "plugin-banner": ["./dist/plugin-banner"],
+      "plugin-logo": ["./dist/plugin-logo"],
+      "@plugins/common-libraries": ["./dist/plugins-common-libraries"]
     },
     "esModuleInterop": true,
     "sourceMap": true,
@@ -27,10 +24,7 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "lib": ["ES2022", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

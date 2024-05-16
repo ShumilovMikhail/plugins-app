@@ -51,6 +51,12 @@
   "pathMappings": {
     "my-lib": [
       "./dist/my-lib"
+    ],
+    "plugin-banner": [
+      "./dist/plugin-banner"
+    ],
+    "plugin-logo": [
+      "./dist/plugin-logo"
     ]
   },
   "nxJsonPlugins": [],
@@ -91,7 +97,7 @@
       },
       {
         "file": "angular.json",
-        "hash": "5146567527627315779"
+        "hash": "16535694913778957616"
       },
       {
         "file": "package-lock.json",
@@ -100,6 +106,82 @@
       {
         "file": "package.json",
         "hash": "2632511773258849880"
+      },
+      {
+        "file": "projects/plugin-banner/.eslintrc.json",
+        "hash": "14363505610686800042"
+      },
+      {
+        "file": "projects/plugin-banner/README.md",
+        "hash": "2212762178326665312"
+      },
+      {
+        "file": "projects/plugin-banner/ng-package.json",
+        "hash": "9247899863465925124"
+      },
+      {
+        "file": "projects/plugin-banner/package.json",
+        "hash": "15805409785565767823"
+      },
+      {
+        "file": "projects/plugin-banner/src/lib/plugin-banner.component.ts",
+        "hash": "15791541059130088570"
+      },
+      {
+        "file": "projects/plugin-banner/src/lib/safe-html.pipe.ts",
+        "hash": "7828256548357717957"
+      },
+      {
+        "file": "projects/plugin-banner/src/public-api.ts",
+        "hash": "12253181983810351676"
+      },
+      {
+        "file": "projects/plugin-banner/tsconfig.lib.json",
+        "hash": "3854248313799891276"
+      },
+      {
+        "file": "projects/plugin-banner/tsconfig.lib.prod.json",
+        "hash": "6958467553555132988"
+      },
+      {
+        "file": "projects/plugin-banner/tsconfig.spec.json",
+        "hash": "6187331034101419811"
+      },
+      {
+        "file": "projects/plugin-logo/.eslintrc.json",
+        "hash": "14363505610686800042"
+      },
+      {
+        "file": "projects/plugin-logo/README.md",
+        "hash": "1263059747000423020"
+      },
+      {
+        "file": "projects/plugin-logo/ng-package.json",
+        "hash": "14644858231505600626"
+      },
+      {
+        "file": "projects/plugin-logo/package.json",
+        "hash": "11523382089248326462"
+      },
+      {
+        "file": "projects/plugin-logo/src/lib/plugin-logo.component.ts",
+        "hash": "2190779182742868269"
+      },
+      {
+        "file": "projects/plugin-logo/src/public-api.ts",
+        "hash": "11067311721268513673"
+      },
+      {
+        "file": "projects/plugin-logo/tsconfig.lib.json",
+        "hash": "3854248313799891276"
+      },
+      {
+        "file": "projects/plugin-logo/tsconfig.lib.prod.json",
+        "hash": "6958467553555132988"
+      },
+      {
+        "file": "projects/plugin-logo/tsconfig.spec.json",
+        "hash": "6187331034101419811"
       },
       {
         "file": "proxy.conf.json",
@@ -270,6 +352,14 @@
         "hash": "12707371001050165594"
       },
       {
+        "file": "src/assets/plugins-assets/banner.png",
+        "hash": "10307088171014717981"
+      },
+      {
+        "file": "src/assets/plugins-assets/logo.svg",
+        "hash": "6077624686562688129"
+      },
+      {
         "file": "src/favicon.ico",
         "hash": "3988961587069885523"
       },
@@ -291,7 +381,7 @@
       },
       {
         "file": "tailwind.config.js",
-        "hash": "7601031578553540284"
+        "hash": "7847328520032028206"
       },
       {
         "file": "tsconfig.app.json",
@@ -299,7 +389,7 @@
       },
       {
         "file": "tsconfig.json",
-        "hash": "1349395567416786342"
+        "hash": "5250826614529146643"
       },
       {
         "file": "tsconfig.spec.json",
