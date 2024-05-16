@@ -14,6 +14,7 @@
     "@angular/platform-server": "^17.1.0",
     "@angular/router": "^17.1.0",
     "@angular/ssr": "^17.1.2",
+    "angular-banner-slider": "^0.5.0",
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
@@ -57,6 +58,12 @@
     ],
     "plugin-logo": [
       "./dist/plugin-logo"
+    ],
+    "@plugins/common-libraries": [
+      "./dist/plugins-common-libraries"
+    ],
+    "plugins-banner-slider": [
+      "./dist/plugins-banner-slider"
     ]
   },
   "nxJsonPlugins": [],
@@ -97,15 +104,15 @@
       },
       {
         "file": "angular.json",
-        "hash": "16535694913778957616"
+        "hash": "8909223351922378133"
       },
       {
         "file": "package-lock.json",
-        "hash": "7820976201092409327"
+        "hash": "9076634646559171150"
       },
       {
         "file": "package.json",
-        "hash": "2632511773258849880"
+        "hash": "11094576762525667367"
       },
       {
         "file": "projects/plugin-banner/.eslintrc.json",
@@ -125,15 +132,11 @@
       },
       {
         "file": "projects/plugin-banner/src/lib/plugin-banner.component.ts",
-        "hash": "15791541059130088570"
-      },
-      {
-        "file": "projects/plugin-banner/src/lib/safe-html.pipe.ts",
-        "hash": "7828256548357717957"
+        "hash": "5841951673103026928"
       },
       {
         "file": "projects/plugin-banner/src/public-api.ts",
-        "hash": "12253181983810351676"
+        "hash": "16610315654461064604"
       },
       {
         "file": "projects/plugin-banner/tsconfig.lib.json",
@@ -181,6 +184,42 @@
       },
       {
         "file": "projects/plugin-logo/tsconfig.spec.json",
+        "hash": "6187331034101419811"
+      },
+      {
+        "file": "projects/plugins-common-libraries/.eslintrc.json",
+        "hash": "14363505610686800042"
+      },
+      {
+        "file": "projects/plugins-common-libraries/README.md",
+        "hash": "7963437996793959307"
+      },
+      {
+        "file": "projects/plugins-common-libraries/ng-package.json",
+        "hash": "7588915667611376613"
+      },
+      {
+        "file": "projects/plugins-common-libraries/package.json",
+        "hash": "12983507881398770563"
+      },
+      {
+        "file": "projects/plugins-common-libraries/src/lib/safe-html.pipe.ts",
+        "hash": "7828256548357717957"
+      },
+      {
+        "file": "projects/plugins-common-libraries/src/public-api.ts",
+        "hash": "1672762551920014682"
+      },
+      {
+        "file": "projects/plugins-common-libraries/tsconfig.lib.json",
+        "hash": "3854248313799891276"
+      },
+      {
+        "file": "projects/plugins-common-libraries/tsconfig.lib.prod.json",
+        "hash": "6958467553555132988"
+      },
+      {
+        "file": "projects/plugins-common-libraries/tsconfig.spec.json",
         "hash": "6187331034101419811"
       },
       {
@@ -389,7 +428,7 @@
       },
       {
         "file": "tsconfig.json",
-        "hash": "5250826614529146643"
+        "hash": "12049054782978787523"
       },
       {
         "file": "tsconfig.spec.json",

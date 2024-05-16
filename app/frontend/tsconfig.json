@@ -12,8 +12,18 @@
     "paths": {
       "my-lib": ["./dist/my-lib"],
       "plugin-banner": ["./dist/plugin-banner"],
-      "plugin-logo": ["./dist/plugin-logo"],
-      "@plugins/common-libraries": ["./dist/plugins-common-libraries"]
+      "plugin-logo": [
+        "./dist/plugin-logo"
+      ],
+      "plugin-banner-slider": [
+        "./dist/plugin-banner-slider"
+      ],
+      "@plugins/common-libraries": [
+        "./dist/plugins-common-libraries"
+      ],
+      "plugins-banner-slider": [
+        "./dist/plugins-banner-slider"
+      ]
     },
     "esModuleInterop": true,
     "sourceMap": true,

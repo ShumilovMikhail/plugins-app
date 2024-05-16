@@ -281,6 +281,90 @@
           }
         }
       }
+    },
+    "plugins-banner-slider": {
+      "projectType": "library",
+      "root": "projects/plugins-banner-slider",
+      "sourceRoot": "projects/plugins-banner-slider/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/plugins-banner-slider/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/plugins-banner-slider/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/plugins-banner-slider/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/plugins-banner-slider/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/plugins-banner-slider/**/*.ts",
+              "projects/plugins-banner-slider/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "plugin-banner-slider": {
+      "projectType": "library",
+      "root": "projects/plugin-banner-slider",
+      "sourceRoot": "projects/plugin-banner-slider/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/plugin-banner-slider/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/plugin-banner-slider/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/plugin-banner-slider/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/plugin-banner-slider/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/plugin-banner-slider/**/*.ts",
+              "projects/plugin-banner-slider/**/*.html"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
