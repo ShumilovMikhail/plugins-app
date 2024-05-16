@@ -59,6 +59,9 @@
     "plugin-logo": [
       "./dist/plugin-logo"
     ],
+    "plugin-banner-slider": [
+      "./dist/plugin-banner-slider"
+    ],
     "@plugins/common-libraries": [
       "./dist/plugins-common-libraries"
     ],
@@ -104,7 +107,7 @@
       },
       {
         "file": "angular.json",
-        "hash": "8909223351922378133"
+        "hash": "3236338147683704650"
       },
       {
         "file": "package-lock.json",
@@ -113,6 +116,42 @@
       {
         "file": "package.json",
         "hash": "11094576762525667367"
+      },
+      {
+        "file": "projects/plugin-banner-slider/.eslintrc.json",
+        "hash": "14363505610686800042"
+      },
+      {
+        "file": "projects/plugin-banner-slider/README.md",
+        "hash": "1313320584425190691"
+      },
+      {
+        "file": "projects/plugin-banner-slider/ng-package.json",
+        "hash": "4858585435290168786"
+      },
+      {
+        "file": "projects/plugin-banner-slider/package.json",
+        "hash": "2847180765283666643"
+      },
+      {
+        "file": "projects/plugin-banner-slider/src/lib/plugin-banner-slider.component.ts",
+        "hash": "10944319593529260579"
+      },
+      {
+        "file": "projects/plugin-banner-slider/src/public-api.ts",
+        "hash": "9426019985811283249"
+      },
+      {
+        "file": "projects/plugin-banner-slider/tsconfig.lib.json",
+        "hash": "3854248313799891276"
+      },
+      {
+        "file": "projects/plugin-banner-slider/tsconfig.lib.prod.json",
+        "hash": "6958467553555132988"
+      },
+      {
+        "file": "projects/plugin-banner-slider/tsconfig.spec.json",
+        "hash": "6187331034101419811"
       },
       {
         "file": "projects/plugin-banner/.eslintrc.json",
@@ -395,6 +434,18 @@
         "hash": "10307088171014717981"
       },
       {
+        "file": "src/assets/plugins-assets/banners/1.png",
+        "hash": "2046779297803048911"
+      },
+      {
+        "file": "src/assets/plugins-assets/banners/2.png",
+        "hash": "9770233048899083254"
+      },
+      {
+        "file": "src/assets/plugins-assets/banners/3.png",
+        "hash": "6357631004264908644"
+      },
+      {
         "file": "src/assets/plugins-assets/logo.svg",
         "hash": "6077624686562688129"
       },
@@ -428,7 +479,7 @@
       },
       {
         "file": "tsconfig.json",
-        "hash": "12049054782978787523"
+        "hash": "17708882264095088204"
       },
       {
         "file": "tsconfig.spec.json",

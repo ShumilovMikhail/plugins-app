@@ -18,6 +18,9 @@
       "plugin-banner-slider": [
         "./dist/plugin-banner-slider"
       ],
+      "plugin-heading": [
+        "./dist/plugin-heading"
+      ],
       "@plugins/common-libraries": [
         "./dist/plugins-common-libraries"
       ],
