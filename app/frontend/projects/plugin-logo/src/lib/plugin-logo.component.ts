@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+interface PluginLogoData {
+  img: string;
+}
 
 @Component({
   selector: 'lib-plugin-logo',
@@ -6,11 +10,11 @@ import { Component } from '@angular/core';
   imports: [],
   template: `
     <header class="px-16 py-16">
-      <img src="img" alt="logo" />
+      <img [src]="data.img" alt="logo" />
     </header>
   `,
   styles: ``,
 })
 export class PluginLogoComponent {
-  protected readonly img = '/assets/plugins-assets/logo.svg';
+  @Input({ required: true }) data!: PluginLogoData;
 }

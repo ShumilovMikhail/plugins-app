@@ -1,10 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
 
 interface Product {
   img: string;
   name: string;
   price: string;
+}
+
+interface PluginListOfProducts {
+  products: Product[];
 }
 
 @Component({
@@ -15,7 +19,7 @@ interface Product {
     <div class="w-full flex justify-center">
       <div class="flex flex-col items-center">
         <div class="grid grid-cols-4 gap-8 px-11 max-w-6xl">
-          @for (product of products; track product) {
+          @for (product of data.products; track product) {
             <div
               [ngClass]="{
                 hidden: $index >= 4 && !showAllProducts()
@@ -40,7 +44,7 @@ interface Product {
           class="border bg-white px-4 py-2 mt-8"
           (click)="showAllProducts.set(!showAllProducts())"
         >
-          VIEW ALL PRODUCTS
+          {{ showAllProducts() ? 'HIDE ALL PRODUCTS' : 'VIEW ALL PRODUCTS' }}
         </button>
       </div>
     </div>
@@ -48,58 +52,7 @@ interface Product {
   styles: ``,
 })
 export class PluginListOfProductsComponent {
-  protected readonly products: Product[] = [
-    {
-      img: '/assets/plugins-assets/products/image-2.png',
-      name: 'Lipstick',
-      price: '19',
-    },
-    {
-      img: '/assets/plugins-assets/products/image-3.png',
-      name: 'Glow Foundation',
-      price: '44',
-    },
-    {
-      img: '/assets/plugins-assets/products/image-4.png',
-      name: 'Cream concealer',
-      price: '67',
-    },
-    {
-      img: '/assets/plugins-assets/products/image-5.png',
-      name: 'Eyeshadow Pencil + Primer',
-      price: '19',
-    },
-    {
-      img: '/assets/plugins-assets/products/image-6.png',
-      name: 'CC+ Cream',
-      price: '45',
-    },
-    {
-      img: '/assets/plugins-assets/products/image-7.png',
-      name: 'Anti-aging cream',
-      price: '55',
-    },
-    {
-      img: '/assets/plugins-assets/products/image-8.png',
-      name: 'Сleanser',
-      price: '33',
-    },
-    {
-      img: '/assets/plugins-assets/products/image-9.png',
-      name: 'Brush Set, Including Cosmetic Bag',
-      price: '33',
-    },
-    {
-      img: '/assets/plugins-assets/products/image-10.png',
-      name: 'Foundation',
-      price: '45',
-    },
-    {
-      img: '/assets/plugins-assets/products/image-11.png',
-      name: 'MAKE-UP-SET',
-      price: '43',
-    },
-  ];
+  @Input({ required: true }) data!: PluginListOfProducts;
 
   protected readonly showAllProducts = signal<boolean>(false);
 }

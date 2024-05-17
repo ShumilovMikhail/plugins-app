@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+interface PluginHeadingData {
+  text: string;
+}
 
 @Component({
   selector: 'lib-plugin-heading',
@@ -6,11 +10,11 @@ import { Component } from '@angular/core';
   imports: [],
   template: `
     <p class="text-4xl text-center pt-4 pb-14">
-      {{ text }}
+      {{ data.text }}
     </p>
   `,
   styles: ``,
 })
 export class PluginHeadingComponent {
-  protected readonly text = 'Products';
+  @Input({ required: true }) data!: PluginHeadingData;
 }

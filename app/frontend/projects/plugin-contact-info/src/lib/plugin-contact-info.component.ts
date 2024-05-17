@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+interface PluginContactInfoData {
+  phone: string;
+  email: string;
+}
 
 @Component({
   selector: 'lib-plugin-contact-info',
@@ -9,8 +14,8 @@ import { Component } from '@angular/core';
       <div class="bg-yellow-50 flex flex-col justify-between py-8 px-28">
         <span class="text-4xl font-semibold text-orange-950 self-center">Contact Us</span>
         <div class="text-cyan-950 text-xl flex flex-col mt-8 font-mono">
-          <span>Phone: {{ phone }}</span>
-          <span>Email: {{ email }}</span>
+          <span>Phone: {{ data.phone }}</span>
+          <span>Email: {{ data.email }}</span>
         </div>
       </div>
     </div>
@@ -18,6 +23,5 @@ import { Component } from '@angular/core';
   styles: ``,
 })
 export class PluginContactInfoComponent {
-  protected readonly phone = '0825 456 858';
-  protected readonly email = 'makeup-shop@makeup.com';
+  @Input({ required: true }) data!: PluginContactInfoData;
 }

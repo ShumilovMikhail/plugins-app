@@ -35,7 +35,7 @@ export class ThumbnailWrapperComponent implements AfterViewChecked, AfterContent
     thumbnail.style.width = `${this.RENDER_WIDTH}px`;
     wrapper.style.width = `${this.RENDER_WIDTH * this.SCALE}px`;
     wrapper.style.height = '0';
-    wrapper.style.transition = 'height 2s';
+    wrapper.style.transition = 'height .2s';
   }
 
   ngAfterViewChecked(): void {
