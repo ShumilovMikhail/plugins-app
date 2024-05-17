@@ -1,9 +1,15 @@
 @if (pluginsService.plugins$ | async | mapPluginsToList; as plugins) {
   @if (plugins.length) {
     @if (articleService.article$ | async; as article) {
-      <div cdkDropListGroup class="flex">
-        <app-plugins-panel [plugins]="plugins"></app-plugins-panel>
-        <app-article class="flex-1" [article]="article"></app-article>
+      <div class="flex h-full w-full">
+        <app-plugins-panel
+          class="block h-full overflow-auto"
+          [plugins]="plugins"
+        ></app-plugins-panel>
+        <app-article
+          class="flex-1 block h-full overflow-auto"
+          [article]="article"
+        ></app-article>
       </div>
     } @else {
       loading article...
