@@ -1,0 +1,40 @@
+<div class="flex flex-col items-center mb-16">
+  <span class="text-sky-900 text-3xl my-16">
+    Available Plugins for Sharing with the World
+  </span>
+  <div class="max-w-7xl w-full grid grid-cols-3 gap-8">
+    <button
+      class="bg-gradient-to-r from-[#3C5A81] to-[#5383B2] rounded-xl h-48 max-w-7xl flex items-center justify-center gap-6 text-left"
+      routerLink="/add"
+    >
+      <img src="/assets/add.svg" alt="add plugin" />
+      <span class="text-sky-50 text-lg">Add New Plugin</span>
+    </button>
+    @for (plugin of fakePlugins$ | async; track plugin) {
+      <button
+        class="rounded-xl h-48 bg-sky-950 px-6 py-4 flex flex-col gap-4 text-left"
+        [routerLink]="['/update', plugin.slug]"
+      >
+        <div class="flex gap-3">
+          <div>
+            <div
+              class="h-20 w-20 rounded-xl bg-white p-3.5 overflow-hidden"
+              [innerHTML]="plugin.svg | safeHtml"
+            ></div>
+          </div>
+          <div class="flex flex-col gap-2">
+            <span class="text-xs font-bold text-gray-300"
+              >Version: {{ plugin.version }}</span
+            >
+            <span class="text-base font-bold text-sky-50">{{
+              plugin.slug
+            }}</span>
+          </div>
+        </div>
+        <div class="text-gray-400">
+          {{ plugin.description }}
+        </div>
+      </button>
+    }
+  </div>
+</div>
