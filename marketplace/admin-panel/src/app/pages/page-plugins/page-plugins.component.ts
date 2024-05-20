@@ -5,11 +5,17 @@ import { Observable } from 'rxjs';
 
 import { Plugin, PluginsService } from '../../services/plugins.service';
 import { PluginSvgViewComponent } from '../../shared/plugin-svg-view/plugin-svg-view.component';
+import { FindVersionPluginPipe } from '../../shared/pipes/find-version-plugin.pipe';
 
 @Component({
   selector: 'app-page-plugins',
   standalone: true,
-  imports: [CommonModule, RouterModule, PluginSvgViewComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    PluginSvgViewComponent,
+    FindVersionPluginPipe,
+  ],
   templateUrl: './page-plugins.component.html',
 })
 export class PagePluginsComponent {

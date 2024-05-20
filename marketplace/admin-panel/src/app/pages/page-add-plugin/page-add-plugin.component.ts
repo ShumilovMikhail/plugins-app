@@ -6,17 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-
-import { Plugin, PluginsService } from '../../services/plugins.service';
-import { PluginSvgViewComponent } from '../../shared/plugin-svg-view/plugin-svg-view.component';
 import { CommonModule } from '@angular/common';
-import {
-  checkSvgDimensionsValidator,
-  kebabCaseValidator,
-  registerCallValidator,
-  svgValidator,
-  uniqueSlugValidator,
-} from '../../utils/validators';
 import {
   animate,
   state,
@@ -24,6 +14,16 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+
+import { Plugin, PluginsService } from '../../services/plugins.service';
+import { PluginSvgViewComponent } from '../../shared/plugin-svg-view/plugin-svg-view.component';
+import {
+  checkSvgDimensionsValidator,
+  kebabCaseValidator,
+  registerCallValidator,
+  svgValidator,
+  uniqueSlugValidator,
+} from '../../utils/validators';
 
 @Component({
   selector: 'app-page-add-plugin',
@@ -89,12 +89,18 @@ export class PageAddPluginComponent {
   public onSubmit() {
     this.form.markAllAsTouched();
     if (this.form.valid) {
+      const version = `${this.form.value.major}.${this.form.value.major}`;
       const plugin: Plugin = {
-        svg: this.form.value.svg!,
         slug: this.form.value.slug!,
-        description: this.form.value.description!,
-        script: this.form.value.script!,
-        version: `${this.form.value.major}.${this.form.value.major}`,
+        latestVersion: version,
+        versions: [
+          {
+            svg: this.form.value.svg!,
+            description: this.form.value.description!,
+            script: this.form.value.script!,
+            version,
+          },
+        ],
       };
       this.pluginsService.addNewPlugin(plugin);
       this.router.navigateByUrl('/');
