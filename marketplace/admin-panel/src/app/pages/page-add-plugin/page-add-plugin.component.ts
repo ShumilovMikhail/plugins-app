@@ -10,7 +10,20 @@ import { Router, RouterModule } from '@angular/router';
 import { Plugin, PluginsService } from '../../services/plugins.service';
 import { PluginSvgViewComponent } from '../../shared/plugin-svg-view/plugin-svg-view.component';
 import { CommonModule } from '@angular/common';
-import { min } from 'rxjs';
+import {
+  checkSvgDimensionsValidator,
+  kebabCaseValidator,
+  registerCallValidator,
+  svgValidator,
+  uniqueSlugValidator,
+} from '../../utils/validators';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-page-add-plugin',
@@ -22,22 +35,56 @@ import { min } from 'rxjs';
     CommonModule,
   ],
   templateUrl: './page-add-plugin.component.html',
+  animations: [
+    trigger('errorAnimation', [
+      state(
+        'void',
+        style({
+          opacity: 0,
+          transform: 'translateX(-20px)',
+        }),
+      ),
+      transition(':enter', [animate('300ms ease-out')]),
+      transition(':leave', [
+        animate(
+          '300ms ease-in',
+          style({
+            opacity: 0,
+            transform: 'translateX(20px)',
+          }),
+        ),
+      ]),
+    ]),
+  ],
 })
 export class PageAddPluginComponent {
   private readonly pluginsService = inject(PluginsService);
   private readonly fb = inject(FormBuilder);
   private readonly router = inject(Router);
   protected readonly form = this.fb.group({
-    svg: new FormControl('', { validators: [Validators.required] }),
+    svg: new FormControl('', {
+      validators: [
+        Validators.required,
+        svgValidator(),
+        checkSvgDimensionsValidator(),
+      ],
+    }),
     minor: new FormControl(0, {
       validators: [Validators.required, Validators.min(0)],
     }),
     major: new FormControl(0, {
       validators: [Validators.required, Validators.min(0)],
     }),
-    slug: new FormControl('', { validators: [Validators.required] }),
-    description: new FormControl('', { validators: [Validators.required] }),
-    script: new FormControl('', { validators: [Validators.required] }),
+    slug: new FormControl('', {
+      validators: [Validators.required, kebabCaseValidator()],
+      asyncValidators: [uniqueSlugValidator(this.pluginsService)],
+    }),
+    description: new FormControl('', {
+      validators: [Validators.required, Validators.maxLength(155)],
+    }),
+    script: new FormControl('', {
+      validators: [Validators.required, registerCallValidator()],
+    }),
   });
   public onSubmit() {
     this.form.markAllAsTouched();

@@ -17,10 +17,12 @@
           <app-plugin-svg-view
             class="h-32 w-32"
             [svg]="
-              form.value.svg ? form.value.svg : defaultIconTemplate.innerHTML
+              form.value.svg && !form.get('svg')?.errors
+                ? form.value.svg
+                : defaultIconTemplate.innerHTML
             "
           ></app-plugin-svg-view>
-          <div class="flex flex-col gap-1">
+          <div class="relative flex flex-col gap-1">
             <span class="text-gray-500 text-xl">SVG icon</span>
             <label class="text-gray-500 text-xl">
               <textarea
@@ -29,12 +31,31 @@
                 formControlName="svg"
                 placeholder="<svg..."
               ></textarea>
+              <ng-container
+                *ngTemplateOutlet="
+                  errors;
+                  context: {
+                    controlName: 'svg',
+                    types: [
+                      { type: 'required', message: 'Icon is required.' },
+                      {
+                        type: 'svgInvalid',
+                        message: 'SVG Icon format is: <svg...'
+                      },
+                      {
+                        type: 'svgDimensionsPresent',
+                        message: 'Remove width and/or height'
+                      }
+                    ]
+                  }
+                "
+              ></ng-container>
             </label>
           </div>
         </div>
         <div class="flex gap-7">
           <div>
-            <label class="flex flex-col gap-1">
+            <label class="relative flex flex-col gap-1">
               <span class="text-gray-500 text-xl">Slug</span>
               <input
                 type="text"
@@ -42,58 +63,142 @@
                 formControlName="slug"
                 placeholder="slug-of-plugin"
               />
-              <span class="hidden">Slug is required.</span>
-              <span class="hidden">Plugin with such slug already exists.</span>
-              <span class="hidden">Use kebab-case for plugin naming.</span>
+              <ng-container
+                *ngTemplateOutlet="
+                  errors;
+                  context: {
+                    controlName: 'slug',
+                    types: [
+                      { type: 'required', message: 'Slug is required.' },
+                      {
+                        type: 'notUnique',
+                        message: 'Plugin with such slug already exists.'
+                      },
+                      {
+                        type: 'kebab',
+                        message: 'Use kebab-case for plugin naming.'
+                      }
+                    ]
+                  }
+                "
+              ></ng-container>
             </label>
             <div class="flex flex-col gap-1">
               <span class="text-gray-500 text-xl">Version</span>
               <div class="flex gap-2 h-10 items-center">
-                <div>
+                <div class="relative">
                   <input
                     formControlName="major"
-                    type="text"
+                    min="0"
+                    type="number"
                     class="h-full w-30 border border-gray-300 bg-gray-200 rounded-xl py-2 px-3"
                     placeholder="Major"
                   />
-                  <span class="hidden">Major ver. is required.</span>
+                  <ng-container
+                    *ngTemplateOutlet="
+                      errors;
+                      context: {
+                        controlName: 'major',
+                        types: [
+                          {
+                            type: 'required',
+                            message: 'Major ver. is required'
+                          },
+                          {
+                            type: 'min',
+                            message: 'Major cannot be less then 0.'
+                          }
+                        ]
+                      }
+                    "
+                  ></ng-container>
                 </div>
-                <div>
+                <div class="relative">
                   <input
                     formControlName="minor"
-                    type="text"
+                    min="0"
+                    type="number"
                     class="h-full w-30 border border-gray-300 bg-gray-200 rounded-xl py-2 px-3"
                     placeholder="Minor"
                   />
-                  <span class="hidden">Minor ver. is required.</span>
+                  <ng-container
+                    *ngTemplateOutlet="
+                      errors;
+                      context: {
+                        controlName: 'minor',
+                        types: [
+                          {
+                            type: 'required',
+                            message: 'Major ver. is required'
+                          },
+                          {
+                            type: 'min',
+                            message: 'Major cannot be less then 0.'
+                          }
+                        ]
+                      }
+                    "
+                  ></ng-container>
                 </div>
                 <div class="h-full w-px bg-black mx-4"></div>
                 <span>{{ form.value.major }}.{{ form.value.minor }}</span>
               </div>
             </div>
-            <label class="text-gray-500 text-xl flex flex-col gap-1">
-              <span>Description [ 155 / 155 ]</span>
+            <label class="text-gray-500 text-xl flex flex-col gap-1 relative">
+              <span
+                >Description [ {{ form.value.description?.length }} / 155
+                ]</span
+              >
               <textarea
                 rows="3"
                 formControlName="description"
+                maxlength="155"
                 class="border border-gray-300 bg-gray-200 rounded-xl py-2 px-3 w-full h-28 resize-none"
                 placeholder="Short description what this plugin does"
               ></textarea>
-              <span class="hidden">Description is required.</span>
+              <ng-container
+                *ngTemplateOutlet="
+                  errors;
+                  context: {
+                    controlName: 'description',
+                    types: [
+                      { type: 'required', message: 'Description is required.' },
+                      {
+                        type: 'maxLength',
+                        message: 'Max description length 155 characters.'
+                      }
+                    ]
+                  }
+                "
+              ></ng-container>
             </label>
           </div>
           <div class="flex flex-col w-full">
-            <label class="text-gray-500 text-xl h-auto flex-auto flex flex-col">
+            <label
+              class="text-gray-500 text-xl h-auto flex-auto flex flex-col relative"
+            >
               <span>Script of the plugin</span>
               <textarea
                 formControlName="script"
                 class="w-full flex-auto border border-gray-300 bg-gray-200 rounded-xl my-1 resize-none py-2 px-3"
                 placeholder="const plugin = () => {  const readingScript = confirm(‘Are you reading this script?’); if (readingScript) { console.log(‘This is fake script no need to read’); } else { throw new Error(‘Script was not readed!’); } } registerPlugin(‘plugin-1’, plugin);"
               ></textarea>
-              <span class="hidden"
-                >No function call “registerPlugin(“name-of-plugin”,
-                AngularComponent)”</span
-              >
+              <ng-container
+                *ngTemplateOutlet="
+                  errors;
+                  context: {
+                    controlName: 'script',
+                    types: [
+                      { type: 'required', message: 'Script is required.' },
+                      {
+                        type: 'registerCall',
+                        message:
+                          'No function call “registerPlugin(“name-of-plugin”,AngularComponent)”'
+                      }
+                    ]
+                  }
+                "
+              ></ng-container>
             </label>
           </div>
         </div>
@@ -135,3 +240,19 @@
     </g>
   </svg>
 </template>
+
+<ng-template #errors let-controlName="controlName" let-types="types">
+  @if (form.get(controlName); as control) {
+    @if (control.errors; as errors) {
+      @for (type of types; track type) {
+        @if (errors[type.type] && control.touched) {
+          <span
+            @errorAnimation
+            class="text-red-600 absolute text-xs bottom-[-16px] left-2"
+            >{{ type.message }}</span
+          >
+        }
+      }
+    }
+  }
+</ng-template>
