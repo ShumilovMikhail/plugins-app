@@ -66,3 +66,28 @@ export function checkSvgDimensionsValidator(): ValidatorFn {
       : null;
   };
 }
+
+export function checkLatestVersionValidator(
+  latestVersion: string | undefined,
+): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    console.log('start');
+    if (!control.value || !latestVersion) return null;
+    if (control.parent && latestVersion) {
+      const majorControl = control.get('major');
+      const minorControl = control.get('minor');
+      const versionFloat: number = parseFloat(
+        `${majorControl?.value}.${minorControl?.value}`,
+      );
+      const latestVersionFloat = parseFloat(latestVersion);
+      console.log(versionFloat > latestVersionFloat);
+      console.log(latestVersionFloat);
+      console.log(versionFloat);
+      return versionFloat > latestVersionFloat
+        ? null
+        : { notLatestVersion: true };
+    }
+    console.log('end');
+    return null;
+  };
+}
