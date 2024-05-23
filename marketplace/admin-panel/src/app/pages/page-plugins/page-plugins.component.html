@@ -10,32 +10,34 @@
       <img src="/assets/add.svg" alt="add plugin" />
       <span class="text-sky-50 text-lg">Add New Plugin</span>
     </button>
-    @for (plugin of plugins$ | async; track plugin) {
-      @if (plugin | findVersionPlugin; as pluginVersion) {
-        <button
-          class="rounded-xl h-48 bg-sky-950 px-6 py-4 flex flex-col gap-4 text-left"
-          [routerLink]="['/update', plugin.slug]"
-        >
-          <div class="flex gap-2.5">
-            <div>
-              <app-plugin-svg-view
-                class="w-20 h-20"
-                [svg]="pluginVersion.svg"
-              ></app-plugin-svg-view>
+    @if (plugins$ | async; as plugins) {
+      @for (plugin of plugins; track plugin) {
+        @if (plugin | findVersionPlugin; as pluginVersion) {
+          <button
+            class="rounded-xl h-48 bg-sky-950 px-6 py-4 flex flex-col gap-4 text-left"
+            [routerLink]="['/update', plugin.slug]"
+          >
+            <div class="flex gap-2.5">
+              <div>
+                <app-plugin-svg-view
+                  class="w-20 h-20"
+                  [svg]="pluginVersion.svg"
+                ></app-plugin-svg-view>
+              </div>
+              <div class="flex flex-col gap-2">
+                <span class="text-xs font-bold text-gray-300"
+                  >Version: {{ pluginVersion.version }}</span
+                >
+                <span class="text-base font-bold text-sky-50">{{
+                  plugin.slug
+                }}</span>
+              </div>
             </div>
-            <div class="flex flex-col gap-2">
-              <span class="text-xs font-bold text-gray-300"
-                >Version: {{ pluginVersion.version }}</span
-              >
-              <span class="text-base font-bold text-sky-50">{{
-                plugin.slug
-              }}</span>
+            <div class="text-gray-400">
+              {{ pluginVersion.description }}
             </div>
-          </div>
-          <div class="text-gray-400">
-            {{ pluginVersion.description }}
-          </div>
-        </button>
+          </button>
+        }
       }
     }
   </div>

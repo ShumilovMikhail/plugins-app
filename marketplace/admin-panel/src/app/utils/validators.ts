@@ -14,8 +14,8 @@ export function uniqueSlugValidator(
   return (control: AbstractControl): Observable<ValidationErrors | null> => {
     return pluginsService.plugins$.pipe(
       take(1),
-      map((plugins: Plugin[]) => {
-        const isNotUnique = plugins.some(
+      map((plugins: Plugin[] | null) => {
+        const isNotUnique = plugins?.some(
           (plugin) => plugin.slug === control.value,
         );
         return isNotUnique ? { notUnique: true } : null;
@@ -71,7 +71,6 @@ export function checkLatestVersionValidator(
   latestVersion: string | undefined,
 ): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
-    console.log('start');
     if (!control.value || !latestVersion) return null;
     if (control.parent && latestVersion) {
       const majorControl = control.get('major');
@@ -80,14 +79,10 @@ export function checkLatestVersionValidator(
         `${majorControl?.value}.${minorControl?.value}`,
       );
       const latestVersionFloat = parseFloat(latestVersion);
-      console.log(versionFloat > latestVersionFloat);
-      console.log(latestVersionFloat);
-      console.log(versionFloat);
       return versionFloat > latestVersionFloat
         ? null
         : { notLatestVersion: true };
     }
-    console.log('end');
     return null;
   };
 }

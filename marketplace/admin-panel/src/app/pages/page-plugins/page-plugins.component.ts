@@ -20,6 +20,6 @@ import { FindVersionPluginPipe } from '../../shared/pipes/find-version-plugin.pi
 })
 export class PagePluginsComponent {
   private readonly pluginsService = inject(PluginsService);
-  protected readonly plugins$: Observable<Plugin[]> =
+  protected readonly plugins$: Observable<Plugin[] | null> =
     this.pluginsService.plugins$;
 }

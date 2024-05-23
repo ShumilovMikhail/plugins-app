@@ -88,7 +88,6 @@ export class PageNewVersionComponent implements OnInit {
 
   public onSubmit(): void {
     this.form.markAllAsTouched();
-    console.log(this.form.value);
     if (this.form.valid) {
       this.pluginsService.addNewPluginVersion(this.slug, {
         svg: this.form.value.svg!,
