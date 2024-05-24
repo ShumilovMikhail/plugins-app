@@ -1,7 +1,9 @@
-import { Type } from '@angular/core';
-
 export interface Plugin {
   slug: string;
-  componentType: Type<any>;
-  defaultData: any;
+  installed: boolean;
+  svg: string;
+  description: string;
+  script: string;
+  version: string;
+  outdated: boolean;
 }

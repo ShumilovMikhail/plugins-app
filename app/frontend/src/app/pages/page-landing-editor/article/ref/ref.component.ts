@@ -10,8 +10,8 @@ import {
 } from '@angular/core';
 
 import { PluginsHostDirective } from '../plugins-host.directive';
-import { PluginsService } from '../../../../services/plugins.service';
-import { PluginsMap } from '../../../../types/pluginsMap.interface';
+import { InstalledPluginsService } from '../../../../services/installed-plugins.service';
+import { InstalledPluginsMap } from '../../../../types/installedPluginsMap.interface';
 import { ContentItem } from '../../../../types/contentItem.interface';
 
 interface PluginComponentType {
@@ -29,17 +29,19 @@ export class RefComponent implements AfterContentInit {
   @Input({ required: true }) contentItem!: ContentItem;
   @ViewChild(PluginsHostDirective, { static: true })
   private readonly pluginsHost!: PluginsHostDirective;
-  private readonly pluginsService = inject(PluginsService);
+  private readonly installedPluginsService = inject(InstalledPluginsService);
 
   ngAfterContentInit(): void {
     const container: ViewContainerRef = this.pluginsHost.viewContainerRef;
     container.clear();
-    this.pluginsService.plugins$.subscribe((pluginsMap: PluginsMap) => {
-      const foundPlugin = pluginsMap[this.contentItem.pluginSlug];
-      if (foundPlugin) {
-        this.loadComponent(container, foundPlugin.componentType, this.contentItem.data);
-      }
-    });
+    this.installedPluginsService.installedPlugins$.subscribe(
+      (pluginsMap: InstalledPluginsMap) => {
+        const foundPlugin = pluginsMap[this.contentItem.pluginSlug];
+        if (foundPlugin) {
+          this.loadComponent(container, foundPlugin.componentType, this.contentItem.data);
+        }
+      },
+    );
   }
 
   private loadComponent(

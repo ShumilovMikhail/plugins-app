@@ -1,14 +1,14 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { PluginsMap } from '../../types/pluginsMap.interface';
-import { Plugin } from '../../types/plugin.interface';
+import { InstalledPluginsMap } from '../../types/installedPluginsMap.interface';
+import { InstalledPlugin } from '../../types/installedPlugin.interface';
 
 @Pipe({
   name: 'mapPluginsToList',
   standalone: true,
 })
 export class MapPluginsToListPipe implements PipeTransform {
-  transform(pluginsMap: PluginsMap | null): Plugin[] | null {
+  transform(pluginsMap: InstalledPluginsMap | null): InstalledPlugin[] | null {
     return pluginsMap
       ? Object.keys(pluginsMap).map((pluginKey: string) => pluginsMap[pluginKey])
       : null;
