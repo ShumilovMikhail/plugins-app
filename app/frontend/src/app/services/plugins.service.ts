@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Plugin } from '../types/plugin.interface';
+import { PluginDTO } from '../types/pluginDTO.interface';
 
 @Injectable({ providedIn: 'root' })
 export class PluginsService {
-  public readonly plugins = new BehaviorSubject<Plugin[]>([
+  public readonly plugins = new BehaviorSubject<PluginDTO[]>([
     {
       slug: 'plugin-nebo6',
       installed: true,
@@ -62,27 +62,27 @@ export class PluginsService {
   ]);
 
   public installPlugin(slug: string): void {
-    const foundPlugin: Plugin | undefined = this.plugins
+    const foundPlugin: PluginDTO | undefined = this.plugins
       .getValue()
-      .find((plugin: Plugin) => plugin.slug === slug);
+      .find((plugin: PluginDTO) => plugin.slug === slug);
     if (!foundPlugin) return;
     foundPlugin.installed = true;
     this.plugins.next(this.plugins.getValue());
   }
 
   public updatePlugin(slug: string): void {
-    const foundPlugin: Plugin | undefined = this.plugins
+    const foundPlugin: PluginDTO | undefined = this.plugins
       .getValue()
-      .find((plugin: Plugin) => plugin.slug === slug);
+      .find((plugin: PluginDTO) => plugin.slug === slug);
     if (!foundPlugin) return;
     foundPlugin.outdated = false;
     this.plugins.next(this.plugins.getValue());
   }
 
   public uninstallPlugin(slug: string): void {
-    const foundPlugin: Plugin | undefined = this.plugins
+    const foundPlugin: PluginDTO | undefined = this.plugins
       .getValue()
-      .find((plugin: Plugin) => plugin.slug === slug);
+      .find((plugin: PluginDTO) => plugin.slug === slug);
     if (!foundPlugin) return;
     foundPlugin.installed = false;
     this.plugins.next(this.plugins.getValue());
