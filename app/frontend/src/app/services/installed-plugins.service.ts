@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, delay } from 'rxjs';
 
-import { InstalledPluginsMap } from '../types/installedPluginsMap.interface';
+import { LoadedPluginsMap } from '../types/loadedPluginsMap.interface';
 import { PluginLogoComponent } from 'plugin-logo';
 import { PluginBannerComponent } from 'plugin-banner';
 import { PluginBannerSliderComponent } from 'plugin-banner-slider';
@@ -10,8 +10,8 @@ import { PluginListOfProductsComponent } from 'plugin-list-of-products';
 import { PluginContactInfoComponent } from 'plugin-contact-info';
 
 @Injectable({ providedIn: 'root' })
-export class InstalledPluginsService {
-  private readonly installedPlugins = new BehaviorSubject<InstalledPluginsMap>({
+export class LoadedPluginsService {
+  private readonly LoadedPlugins = new BehaviorSubject<LoadedPluginsMap>({
     'plugin-logo': {
       slug: 'plugin-logo',
       componentType: PluginLogoComponent,
@@ -137,6 +137,6 @@ export class InstalledPluginsService {
       },
     },
   });
-  public readonly installedPlugins$: Observable<InstalledPluginsMap> =
-    this.installedPlugins.asObservable().pipe(delay(100));
+  public readonly LoadedPlugins$: Observable<LoadedPluginsMap> =
+    this.LoadedPlugins.asObservable().pipe(delay(100));
 }

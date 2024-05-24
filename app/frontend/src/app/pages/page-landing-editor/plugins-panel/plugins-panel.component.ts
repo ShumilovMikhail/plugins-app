@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
 
-import { InstalledPlugin } from '../../../types/installedPlugin.interface';
+import { LoadedPlugin } from '../../../types/loadedPlugin.interface';
 import { MapToContentItemPipe } from './map-to-content-item.pipe';
 import { RefComponent } from '../article/ref/ref.component';
 import { ThumbnailWrapperComponent } from './thumbnail-wrapper/thumbnail-wrapper.component';
@@ -19,5 +19,5 @@ import { ThumbnailWrapperComponent } from './thumbnail-wrapper/thumbnail-wrapper
   templateUrl: './plugins-panel.component.html',
 })
 export class PluginsPanelComponent {
-  @Input({ required: true }) plugins!: InstalledPlugin[];
+  @Input({ required: true }) plugins!: LoadedPlugin[];
 }

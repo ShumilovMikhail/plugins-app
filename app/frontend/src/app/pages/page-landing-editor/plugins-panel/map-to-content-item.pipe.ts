@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { InstalledPlugin } from '../../../types/installedPlugin.interface';
+import { LoadedPlugin } from '../../../types/loadedPlugin.interface';
 import { ContentItem } from '../../../types/contentItem.interface';
 
 @Pipe({
@@ -8,7 +8,7 @@ import { ContentItem } from '../../../types/contentItem.interface';
   standalone: true,
 })
 export class MapToContentItemPipe implements PipeTransform {
-  transform(plugin: InstalledPlugin): ContentItem {
+  transform(plugin: LoadedPlugin): ContentItem {
     return {
       pluginSlug: plugin.slug,
       data: plugin.defaultData,

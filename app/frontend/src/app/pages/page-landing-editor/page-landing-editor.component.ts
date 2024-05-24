@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CdkDropListGroup } from '@angular/cdk/drag-drop';
 
 import { HeaderService } from '../../services/header.service';
-import { InstalledPluginsService } from '../../services/installed-plugins.service';
+import { LoadedPluginsService } from '../../services/installed-plugins.service';
 import { ArticleService } from '../../services/article.service';
 import { ArticleComponent } from './article/article.component';
 import { PluginsPanelComponent } from './plugins-panel/plugins-panel.component';
@@ -26,7 +26,7 @@ import { MapPluginsToListPipe } from './map-plugins-to-list.pipe';
 })
 export class PageLandingEditorComponent implements OnInit {
   private readonly headerService = inject(HeaderService);
-  protected readonly installedPluginsService = inject(InstalledPluginsService);
+  protected readonly LoadedPluginsService = inject(LoadedPluginsService);
   protected readonly articleService = inject(ArticleService);
 
   ngOnInit(): void {
