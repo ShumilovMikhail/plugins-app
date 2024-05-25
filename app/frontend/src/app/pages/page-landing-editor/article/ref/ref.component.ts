@@ -11,7 +11,7 @@ import {
 
 import { PluginsHostDirective } from '../plugins-host.directive';
 import { LoadedPluginsService } from '../../../../services/loaded-plugins.service';
-import { LoadedPluginsMap } from '../../../../types/loadedPluginsMap.interface';
+import { LoadedPluginsMap } from '@plugins/common-libraries';
 import { ContentItem } from '../../../../types/contentItem.interface';
 
 interface PluginComponentType {

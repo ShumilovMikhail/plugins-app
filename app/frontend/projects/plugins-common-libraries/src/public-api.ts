@@ -4,3 +4,4 @@
 
 export * from './lib/safe-html.pipe';
 export * from './lib/loadedPlugin.interface';
+export * from './lib/loadedPluginsMap.interface';

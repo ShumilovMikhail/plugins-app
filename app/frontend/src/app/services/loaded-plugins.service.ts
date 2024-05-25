@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, delay } from 'rxjs';
 
-import { LoadedPluginsMap } from '../types/loadedPluginsMap.interface';
+import { LoadedPluginsMap } from '@plugins/common-libraries';
 import { PluginLogoComponent } from 'plugin-logo';
 import { PluginBannerComponent } from 'plugin-banner';
 import { PluginBannerSliderComponent } from 'plugin-banner-slider';

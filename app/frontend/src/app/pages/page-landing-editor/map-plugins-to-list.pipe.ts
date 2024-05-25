@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { LoadedPluginsMap } from '../../types/loadedPluginsMap.interface';
+import { LoadedPluginsMap } from '@plugins/common-libraries';
 import { LoadedPlugin } from '@plugins/common-libraries';
 
 @Pipe({
