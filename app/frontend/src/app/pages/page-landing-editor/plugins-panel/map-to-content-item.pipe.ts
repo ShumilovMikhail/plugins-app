@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { LoadedPlugin } from '../../../types/loadedPlugin.interface';
+import { LoadedPlugin } from '@plugins/common-libraries';
 import { ContentItem } from '../../../types/contentItem.interface';
 
 @Pipe({

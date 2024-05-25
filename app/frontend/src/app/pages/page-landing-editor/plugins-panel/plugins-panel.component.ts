@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
 
-import { LoadedPlugin } from '../../../types/loadedPlugin.interface';
+import { LoadedPlugin } from '@plugins/common-libraries';
 import { MapToContentItemPipe } from './map-to-content-item.pipe';
 import { RefComponent } from '../article/ref/ref.component';
 import { ThumbnailWrapperComponent } from './thumbnail-wrapper/thumbnail-wrapper.component';
