@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CdkDropListGroup } from '@angular/cdk/drag-drop';
 
 import { HeaderService } from '../../services/header.service';
-import { LoadedPluginsService } from '../../services/installed-plugins.service';
+import { LoadedPluginsService } from '../../services/loaded-plugins.service';
 import { ArticleService } from '../../services/article.service';
 import { ArticleComponent } from './article/article.component';
 import { PluginsPanelComponent } from './plugins-panel/plugins-panel.component';

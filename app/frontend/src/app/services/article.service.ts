@@ -18,7 +18,6 @@ export class ArticleService {
             .get<ArticleType>('/api/article')
             .pipe(
               tap((article) => {
-                console.log(article);
                 this.cachedArticle.next(article);
               }),
             )

@@ -20,14 +20,15 @@ export class PageStoreComponent implements OnInit {
   private readonly pluginsService = inject(PluginsService);
   protected readonly filterInstalled$: Observable<boolean> =
     this.filterInstalled.asObservable();
-  protected readonly plugins$: Observable<PluginDTO[]> = this.filterInstalled$.pipe(
-    combineLatestWith(this.pluginsService.plugins),
-    map(([installed, plugins]: [boolean, PluginDTO[]]) => {
-      return installed
-        ? plugins.filter((plugin: PluginDTO) => plugin.installed)
-        : plugins;
-    }),
-  );
+  protected readonly plugins$: Observable<PluginDTO[] | null> =
+    this.filterInstalled$.pipe(
+      combineLatestWith(this.pluginsService.plugins$),
+      map(([installed, plugins]: [boolean, PluginDTO[] | null]) => {
+        return plugins
+          ? plugins.filter((plugin: PluginDTO) => (installed ? plugin.installed : plugin))
+          : null;
+      }),
+    );
 
   ngOnInit(): void {
     this.headerService.pageName.set('Plugins store');

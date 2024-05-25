@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 
 import { PluginsHostDirective } from '../plugins-host.directive';
-import { LoadedPluginsService } from '../../../../services/installed-plugins.service';
+import { LoadedPluginsService } from '../../../../services/loaded-plugins.service';
 import { LoadedPluginsMap } from '../../../../types/loadedPluginsMap.interface';
 import { ContentItem } from '../../../../types/contentItem.interface';
 
