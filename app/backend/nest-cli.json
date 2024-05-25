@@ -15,6 +15,15 @@
       "compilerOptions": {
         "tsConfigPath": "libs/article/tsconfig.lib.json"
       }
+    },
+    "plugins": {
+      "type": "library",
+      "root": "libs/plugins",
+      "entryFile": "index",
+      "sourceRoot": "libs/plugins/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/plugins/tsconfig.lib.json"
+      }
     }
   }
 }

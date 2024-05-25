@@ -18,9 +18,21 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@app/article": ["libs/article/src"],
-      "@app/article/*": ["libs/article/src/*"],
-      "@app/types/*": ["../frontend/src/app/types/*"]
+      "@app/article": [
+        "libs/article/src"
+      ],
+      "@app/article/*": [
+        "libs/article/src/*"
+      ],
+      "@app/types/*": [
+        "../frontend/src/app/types/*"
+      ],
+      "@app/plugins": [
+        "libs/plugins/src"
+      ],
+      "@app/plugins/*": [
+        "libs/plugins/src/*"
+      ]
     }
   }
 }

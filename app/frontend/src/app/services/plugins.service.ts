@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+
 import { PluginDTO } from '../types/pluginDTO.interface';
 
 @Injectable({ providedIn: 'root' })

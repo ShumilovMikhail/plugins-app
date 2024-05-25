@@ -15,7 +15,6 @@ export class ArticleController {
   @Get()
   readArticle(): ArticleType {
     return JSON.parse(readFileSync(ARTICLE_PATH, { encoding: 'utf-8' }));
-    // return this.articleService.getHello();
   }
 
   @Post()

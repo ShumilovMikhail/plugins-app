@@ -1,9 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { BehaviorSubject, Observable, combineLatestWith, map } from 'rxjs';
 
 import { HeaderService } from '../../services/header.service';
-import { CommonModule } from '@angular/common';
-import { BehaviorSubject, Observable, combineLatestWith, map } from 'rxjs';
 import { PluginSvgViewComponent } from '../../shared/plugin-svg-view/plugin-svg-view.component';
 import { PluginsService } from '../../services/plugins.service';
 import { PluginDTO } from '../../types/pluginDTO.interface';

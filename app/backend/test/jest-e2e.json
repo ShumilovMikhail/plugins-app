@@ -12,6 +12,8 @@
   },
   "moduleNameMapper": {
     "@app/article/(.*)": "<rootDir>/../libs/article/src/$1",
-    "@app/article": "<rootDir>/../libs/article/src"
+    "@app/article": "<rootDir>/../libs/article/src",
+    "@app/plugins/(.*)": "<rootDir>/../libs/plugins/src/$1",
+    "@app/plugins": "<rootDir>/../libs/plugins/src"
   }
 }
