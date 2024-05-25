@@ -1,8 +1,8 @@
 import { Injectable, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, switchMap, tap } from 'rxjs';
 
 import { PluginDTO } from '../types/pluginDTO.interface';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class PluginsService {
@@ -13,7 +13,6 @@ export class PluginsService {
     .pipe(
       switchMap((cachedPlugins) => {
         if (!cachedPlugins) {
-          console.log(cachedPlugins);
           this.http
             .get<PluginDTO[]>('/api/plugins')
             .pipe(

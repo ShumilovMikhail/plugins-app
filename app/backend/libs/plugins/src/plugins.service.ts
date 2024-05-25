@@ -21,7 +21,7 @@ export class PluginsService {
     installedPlugins: Plugin[],
   ): PluginDTO {
     const foundInstalledPlugin = installedPlugins.find(
-      (installedPlugin: Plugin) => (installedPlugin.slug = plugin.slug),
+      (installedPlugin: Plugin) => installedPlugin.slug === plugin.slug,
     );
     const latestVersion = plugin.versions.find(
       (pluginVersion: MarketplacePluginVersion) =>
