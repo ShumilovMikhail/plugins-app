@@ -11,16 +11,7 @@ registerPlugin({
   defaultData: {
     banners: [
       {
-        img: '/assets/plugins-assets/banners/1.png',
-        seoText: 'Catch today’s lipsticks offers',
-        button: {
-          color: '#FFF',
-          bgColor: '#000',
-          text: 'ORDER NOW',
-        },
-      },
-      {
-        img: '/assets/plugins-assets/banners/2.png',
+        img: '/assets/plugins-assets/banners/2.webp',
         seoText: '3 Step Beauty Ritual',
         button: {
           color: '#FFF',
@@ -29,7 +20,7 @@ registerPlugin({
         },
       },
       {
-        img: '/assets/plugins-assets/banners/3.png',
+        img: '/assets/plugins-assets/banners/3.webp',
         seoText: 'Best offers this month’s',
         button: {
           color: '#FFF',

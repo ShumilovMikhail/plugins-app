@@ -1,15 +1,12 @@
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import {
   AfterContentInit,
-  AfterViewChecked,
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   ElementRef,
-  PLATFORM_ID,
   ViewChild,
-  inject,
 } from '@angular/core';
+import { delay, of, take } from 'rxjs';
 
 @Component({
   selector: 'app-thumbnail-wrapper',
@@ -18,15 +15,21 @@ import {
   templateUrl: './thumbnail-wrapper.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ThumbnailWrapperComponent implements AfterViewChecked, AfterContentInit {
-  private readonly changeDetectorRef = inject(ChangeDetectorRef);
-  private readonly platformId = inject(PLATFORM_ID);
+export class ThumbnailWrapperComponent implements AfterContentInit {
   @ViewChild('thumbnail', { static: true })
   private readonly thumbnail!: ElementRef<HTMLDivElement>;
   @ViewChild('wrapper', { static: true })
   private readonly wrapper!: ElementRef<HTMLDivElement>;
   protected readonly RENDER_WIDTH = 1280;
   protected readonly SCALE = 0.2;
+
+  setHeight() {
+    const wrapper = this.wrapper.nativeElement;
+    const thumbnail = this.thumbnail.nativeElement;
+    const rect = thumbnail.getBoundingClientRect();
+    wrapper.style.width = rect.width + 'px';
+    wrapper.style.height = rect.height + 'px';
+  }
 
   ngAfterContentInit(): void {
     const wrapper = this.wrapper.nativeElement;
@@ -36,15 +39,14 @@ export class ThumbnailWrapperComponent implements AfterViewChecked, AfterContent
     wrapper.style.width = `${this.RENDER_WIDTH * this.SCALE}px`;
     wrapper.style.height = '0';
     wrapper.style.transition = 'height .2s';
-  }
-
-  ngAfterViewChecked(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      const wrapper = this.wrapper.nativeElement;
-      const thumbnail = this.thumbnail.nativeElement;
-      const rect = thumbnail.getBoundingClientRect();
-      wrapper.style.width = rect.width + 'px';
-      wrapper.style.height = rect.height + 'px';
-    }
+    of(1)
+      .pipe(delay(350), take(1))
+      .subscribe(() => {
+        const wrapper = this.wrapper.nativeElement;
+        const thumbnail = this.thumbnail.nativeElement;
+        const rect = thumbnail.getBoundingClientRect();
+        wrapper.style.width = rect.width + 'px';
+        wrapper.style.height = rect.height + 'px';
+      });
   }
 }

@@ -62,6 +62,9 @@
     "plugin-banner-slider": [
       "./dist/plugin-banner-slider"
     ],
+    "plugin-contact-info": [
+      "./dist/plugin-contact-info"
+    ],
     "plugin-heading": [
       "./dist/plugin-heading"
     ],
@@ -113,7 +116,7 @@
       },
       {
         "file": "angular.json",
-        "hash": "6045150915349936827"
+        "hash": "13594391168793470089"
       },
       {
         "file": "package-lock.json",
@@ -141,11 +144,11 @@
       },
       {
         "file": "projects/plugin-banner-slider/src/lib/plugin-banner-slider.component.ts",
-        "hash": "10944319593529260579"
+        "hash": "744047171791894243"
       },
       {
         "file": "projects/plugin-banner-slider/src/public-api.ts",
-        "hash": "9426019985811283249"
+        "hash": "12714580480925763218"
       },
       {
         "file": "projects/plugin-banner-slider/tsconfig.lib.json",
@@ -177,11 +180,11 @@
       },
       {
         "file": "projects/plugin-banner/src/lib/plugin-banner.component.ts",
-        "hash": "5841951673103026928"
+        "hash": "11994191420243750599"
       },
       {
         "file": "projects/plugin-banner/src/public-api.ts",
-        "hash": "16610315654461064604"
+        "hash": "15578354055311718100"
       },
       {
         "file": "projects/plugin-banner/tsconfig.lib.json",
@@ -193,6 +196,42 @@
       },
       {
         "file": "projects/plugin-banner/tsconfig.spec.json",
+        "hash": "6187331034101419811"
+      },
+      {
+        "file": "projects/plugin-contact-info/.eslintrc.json",
+        "hash": "14363505610686800042"
+      },
+      {
+        "file": "projects/plugin-contact-info/README.md",
+        "hash": "4734192189989287554"
+      },
+      {
+        "file": "projects/plugin-contact-info/ng-package.json",
+        "hash": "5606838426964328323"
+      },
+      {
+        "file": "projects/plugin-contact-info/package.json",
+        "hash": "8888011095281342915"
+      },
+      {
+        "file": "projects/plugin-contact-info/src/lib/plugin-contact-info.component.ts",
+        "hash": "6381261580484276503"
+      },
+      {
+        "file": "projects/plugin-contact-info/src/public-api.ts",
+        "hash": "2172414460481277377"
+      },
+      {
+        "file": "projects/plugin-contact-info/tsconfig.lib.json",
+        "hash": "3854248313799891276"
+      },
+      {
+        "file": "projects/plugin-contact-info/tsconfig.lib.prod.json",
+        "hash": "6958467553555132988"
+      },
+      {
+        "file": "projects/plugin-contact-info/tsconfig.spec.json",
         "hash": "6187331034101419811"
       },
       {
@@ -209,15 +248,15 @@
       },
       {
         "file": "projects/plugin-heading/package.json",
-        "hash": "12555320739821450787"
+        "hash": "4130032441826951542"
       },
       {
         "file": "projects/plugin-heading/src/lib/plugin-heading.component.ts",
-        "hash": "15866154153158137107"
+        "hash": "12127579548855788762"
       },
       {
         "file": "projects/plugin-heading/src/public-api.ts",
-        "hash": "1340197953904543429"
+        "hash": "6878100896873490585"
       },
       {
         "file": "projects/plugin-heading/tsconfig.lib.json",
@@ -249,11 +288,11 @@
       },
       {
         "file": "projects/plugin-list-of-products/src/lib/plugin-list-of-products.component.ts",
-        "hash": "14311669589271207209"
+        "hash": "7405333061671388934"
       },
       {
         "file": "projects/plugin-list-of-products/src/public-api.ts",
-        "hash": "14802979023752370192"
+        "hash": "735943289380581245"
       },
       {
         "file": "projects/plugin-list-of-products/tsconfig.lib.json",
@@ -285,11 +324,11 @@
       },
       {
         "file": "projects/plugin-logo/src/lib/plugin-logo.component.ts",
-        "hash": "2190779182742868269"
+        "hash": "16577033771799823344"
       },
       {
         "file": "projects/plugin-logo/src/public-api.ts",
-        "hash": "11067311721268513673"
+        "hash": "9820535009232637462"
       },
       {
         "file": "projects/plugin-logo/tsconfig.lib.json",
@@ -320,12 +359,24 @@
         "hash": "12983507881398770563"
       },
       {
+        "file": "projects/plugins-common-libraries/src/lib/loadedPlugin.interface.ts",
+        "hash": "8058794084048008204"
+      },
+      {
+        "file": "projects/plugins-common-libraries/src/lib/loadedPluginsMap.interface.ts",
+        "hash": "5225684488839858440"
+      },
+      {
+        "file": "projects/plugins-common-libraries/src/lib/plugin-loader.ts",
+        "hash": "3595048019565385709"
+      },
+      {
         "file": "projects/plugins-common-libraries/src/lib/safe-html.pipe.ts",
         "hash": "7828256548357717957"
       },
       {
         "file": "projects/plugins-common-libraries/src/public-api.ts",
-        "hash": "1672762551920014682"
+        "hash": "1444375425575669256"
       },
       {
         "file": "projects/plugins-common-libraries/tsconfig.lib.json",
@@ -353,7 +404,7 @@
       },
       {
         "file": "src/app/app.component.ts",
-        "hash": "8414608161032982398"
+        "hash": "10134872673289310480"
       },
       {
         "file": "src/app/app.config.server.ts",
@@ -377,7 +428,7 @@
       },
       {
         "file": "src/app/layout/layout/layout.component.html",
-        "hash": "4154161407512691790"
+        "hash": "3923689332167069148"
       },
       {
         "file": "src/app/layout/layout/layout.component.ts",
@@ -400,14 +451,6 @@
         "hash": "16630745903228694601"
       },
       {
-        "file": "src/app/pages/page-landing-editor/article/paragraph/paragraph.component.html",
-        "hash": "6432694513186529942"
-      },
-      {
-        "file": "src/app/pages/page-landing-editor/article/paragraph/paragraph.component.ts",
-        "hash": "17291959503457770000"
-      },
-      {
         "file": "src/app/pages/page-landing-editor/article/plugins-host.directive.ts",
         "hash": "9504142632664768980"
       },
@@ -417,23 +460,23 @@
       },
       {
         "file": "src/app/pages/page-landing-editor/article/ref/ref.component.ts",
-        "hash": "14756907696239885618"
+        "hash": "16302132103587495981"
       },
       {
         "file": "src/app/pages/page-landing-editor/map-plugins-to-list.pipe.ts",
-        "hash": "4121997073789756939"
+        "hash": "11134340533741368219"
       },
       {
         "file": "src/app/pages/page-landing-editor/page-landing-editor.component.html",
-        "hash": "2948656934523504082"
+        "hash": "14606317971883269377"
       },
       {
         "file": "src/app/pages/page-landing-editor/page-landing-editor.component.ts",
-        "hash": "7561279731722659160"
+        "hash": "836735854886114959"
       },
       {
         "file": "src/app/pages/page-landing-editor/plugins-panel/map-to-content-item.pipe.ts",
-        "hash": "991657189532017252"
+        "hash": "6718479954120128066"
       },
       {
         "file": "src/app/pages/page-landing-editor/plugins-panel/plugins-panel.component.html",
@@ -441,7 +484,7 @@
       },
       {
         "file": "src/app/pages/page-landing-editor/plugins-panel/plugins-panel.component.ts",
-        "hash": "13407281178719796783"
+        "hash": "3879848067076592036"
       },
       {
         "file": "src/app/pages/page-landing-editor/plugins-panel/thumbnail-wrapper/thumbnail-wrapper.component.html",
@@ -449,27 +492,43 @@
       },
       {
         "file": "src/app/pages/page-landing-editor/plugins-panel/thumbnail-wrapper/thumbnail-wrapper.component.ts",
-        "hash": "12879441870902256808"
+        "hash": "10110079181879792658"
       },
       {
         "file": "src/app/pages/page-store/page-store.component.html",
-        "hash": "12152666997071698971"
+        "hash": "3203579472587331713"
       },
       {
         "file": "src/app/pages/page-store/page-store.component.ts",
-        "hash": "221343796631722861"
+        "hash": "16370555420802694656"
       },
       {
         "file": "src/app/services/article.service.ts",
-        "hash": "15276622446751185947"
+        "hash": "18180346198984502395"
       },
       {
         "file": "src/app/services/header.service.ts",
         "hash": "11263314692294143740"
       },
       {
+        "file": "src/app/services/loaded-plugins.service.ts",
+        "hash": "13647313763689165934"
+      },
+      {
+        "file": "src/app/services/plugins-loader.service.ts",
+        "hash": "15250932117329853443"
+      },
+      {
         "file": "src/app/services/plugins.service.ts",
-        "hash": "8843416241031860564"
+        "hash": "10366785478741164986"
+      },
+      {
+        "file": "src/app/shared/pipes/safe-html.pipe.ts",
+        "hash": "7828256548357717957"
+      },
+      {
+        "file": "src/app/shared/plugin-svg-view/plugin-svg-view.component.ts",
+        "hash": "10156054943587906184"
       },
       {
         "file": "src/app/types/article.type.ts",
@@ -492,36 +551,72 @@
         "hash": "4013339232009596565"
       },
       {
-        "file": "src/app/types/plugin.interface.ts",
-        "hash": "336177021081856153"
+        "file": "src/app/types/marketplacePlugin.interface.ts",
+        "hash": "2187803445450025571"
       },
       {
-        "file": "src/app/types/pluginsMap.interface.ts",
-        "hash": "15790995812501158239"
+        "file": "src/app/types/marketplacePluginVersion.interface.ts",
+        "hash": "4734863110418263386"
+      },
+      {
+        "file": "src/app/types/plugin.interface.ts",
+        "hash": "442053288142705971"
+      },
+      {
+        "file": "src/app/types/pluginDTO.interface.ts",
+        "hash": "17163061233779537934"
       },
       {
         "file": "src/assets/.gitkeep",
         "hash": "3244421341483603138"
       },
       {
+        "file": "src/assets/Montserrat-SemiBold.ttf",
+        "hash": "3568964015813465214"
+      },
+      {
+        "file": "src/assets/add-new-plugin.svg",
+        "hash": "6332849738612495083"
+      },
+      {
         "file": "src/assets/empty-page-question.png",
         "hash": "12707371001050165594"
+      },
+      {
+        "file": "src/assets/plugin-banner-slider.mjs",
+        "hash": "17367502648486144089"
+      },
+      {
+        "file": "src/assets/plugin-banner.mjs",
+        "hash": "1486162006280223495"
+      },
+      {
+        "file": "src/assets/plugin-contact-info.mjs",
+        "hash": "16711342944396713413"
+      },
+      {
+        "file": "src/assets/plugin-heading.mjs",
+        "hash": "7900494543045575871"
+      },
+      {
+        "file": "src/assets/plugin-list-of-products.mjs",
+        "hash": "17521711223236700823"
+      },
+      {
+        "file": "src/assets/plugin-logo.mjs",
+        "hash": "10051355892884021023"
       },
       {
         "file": "src/assets/plugins-assets/banner.png",
         "hash": "10307088171014717981"
       },
       {
-        "file": "src/assets/plugins-assets/banners/1.png",
-        "hash": "2046779297803048911"
+        "file": "src/assets/plugins-assets/banners/2.webp",
+        "hash": "13409778057511092713"
       },
       {
-        "file": "src/assets/plugins-assets/banners/2.png",
-        "hash": "9770233048899083254"
-      },
-      {
-        "file": "src/assets/plugins-assets/banners/3.png",
-        "hash": "6357631004264908644"
+        "file": "src/assets/plugins-assets/banners/3.webp",
+        "hash": "13050072673112944309"
       },
       {
         "file": "src/assets/plugins-assets/logo.svg",
@@ -568,12 +663,20 @@
         "hash": "465448397262616945"
       },
       {
+        "file": "src/assets/system.min.js",
+        "hash": "3745907475097216225"
+      },
+      {
         "file": "src/favicon.ico",
         "hash": "3988961587069885523"
       },
       {
+        "file": "src/fonts.scss",
+        "hash": "6125343914159900854"
+      },
+      {
         "file": "src/index.html",
-        "hash": "7051081544717893787"
+        "hash": "15407209723090016565"
       },
       {
         "file": "src/main.server.ts",
@@ -585,7 +688,7 @@
       },
       {
         "file": "src/styles.scss",
-        "hash": "5078529675796917226"
+        "hash": "11483414087306472120"
       },
       {
         "file": "tailwind.config.js",
@@ -597,7 +700,7 @@
       },
       {
         "file": "tsconfig.json",
-        "hash": "5580804276518996151"
+        "hash": "15300501062059786214"
       },
       {
         "file": "tsconfig.spec.json",
