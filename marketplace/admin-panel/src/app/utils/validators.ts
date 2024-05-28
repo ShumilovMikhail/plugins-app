@@ -36,8 +36,7 @@ export function kebabCaseValidator(): ValidatorFn {
 
 export function registerCallValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
-    const registerCallRegex =
-      /registerPlugin\( *?["'][a-z]+(-[a-z0-9]+)*['"] *?,.*\w+\)/;
+    const registerCallRegex = /registerPlugin\(/;
     if (!control.value) return null;
     const isValid = registerCallRegex.test(control.value);
     return isValid ? null : { registerCall: true };
