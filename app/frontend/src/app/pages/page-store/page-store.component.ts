@@ -39,7 +39,6 @@ export class PageStoreComponent implements OnInit {
   }
 
   public onInstallPlugin(slug: string): void {
-    console.log(1);
     this.pluginsService.installPlugin(slug);
   }
 

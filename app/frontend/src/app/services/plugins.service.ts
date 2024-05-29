@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, switchMap, tap } from 'rxjs';
+import { BehaviorSubject, Observable, of, switchMap, tap } from 'rxjs';
 
 import { PluginDTO } from '../types/pluginDTO.interface';
 
@@ -17,13 +17,24 @@ export class PluginsService {
             .get<PluginDTO[]>('/api/plugins')
             .pipe(
               tap((plugins: PluginDTO[]) => {
-                console.log(plugins);
                 this.cachedPlugins.next(plugins);
               }),
             )
             .subscribe(() => {});
         }
         return this.cachedPlugins.asObservable();
+      }),
+    );
+  public readonly installedPlugins$: Observable<PluginDTO[]> = this.cachedPlugins
+    .asObservable()
+    .pipe(
+      switchMap((cachedPlugins: PluginDTO[] | null) => {
+        if (!cachedPlugins) {
+          return this.http.get<PluginDTO[]>('/api/plugins?installed=1');
+        }
+        return of(
+          cachedPlugins!.filter((plugin: PluginDTO): boolean => plugin.installed),
+        );
       }),
     );
 
@@ -57,6 +68,7 @@ export class PluginsService {
         (plugin: PluginDTO) => plugin.slug === slug,
       );
       cachedPlugins[foundPluginIndex].installed = false;
+      this.cachedPlugins.next(cachedPlugins);
     });
   }
 }

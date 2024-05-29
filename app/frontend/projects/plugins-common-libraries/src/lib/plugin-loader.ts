@@ -15,3 +15,12 @@ export function registerPlugin(plugin: LoadedPlugin) {
     loadedPlugins.next(newLoadedPlugins);
   }
 }
+export function removePlugin(slug: string) {
+  const newLoadedPlugins = { ...loadedPlugins.getValue() };
+  delete newLoadedPlugins[slug];
+  loadedPlugins.next(newLoadedPlugins);
+}
+
+export function getLoadedPluginsSync(): LoadedPluginsMap {
+  return loadedPlugins.getValue();
+}

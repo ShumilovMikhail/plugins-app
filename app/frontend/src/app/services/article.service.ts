@@ -13,7 +13,6 @@ export class ArticleService {
     .pipe(
       switchMap((cachedArticle) => {
         if (!cachedArticle) {
-          console.log(cachedArticle);
           this.http
             .get<ArticleType>('/api/article')
             .pipe(

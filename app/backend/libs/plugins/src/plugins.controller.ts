@@ -1,4 +1,12 @@
-import { Controller, Delete, Get, Header, Param, Post } from '@nestjs/common';
+import {
+  Controller,
+  Delete,
+  Get,
+  Header,
+  Param,
+  Post,
+  Query,
+} from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { Observable, map, tap } from 'rxjs';
 
@@ -19,7 +27,7 @@ export class PluginsController {
   ) {}
 
   @Get()
-  readPlugins(): Observable<PluginDTO[]> {
+  readPlugins(@Query('installed') installed: number): Observable<PluginDTO[]> {
     const installedPlugins: Plugin[] = this.pluginsService.readPlugins();
     return this.httpService
       .get<MarketplacePlugin[]>(`${MARKETPLACE_API}/plugins`)
@@ -33,6 +41,11 @@ export class PluginsController {
               installedPlugins,
             );
           });
+        }),
+        map((plugins: PluginDTO[]) => {
+          return !installed
+            ? plugins
+            : plugins.filter((plugin: PluginDTO) => plugin.installed);
         }),
       );
   }

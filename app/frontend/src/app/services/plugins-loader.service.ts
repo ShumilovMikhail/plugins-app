@@ -1,26 +1,27 @@
 import { DOCUMENT } from '@angular/common';
 import { Injectable, RendererFactory2, inject } from '@angular/core';
-import * as pluginsCommonLibraries from '@plugins/common-libraries';
 import * as angularCore from '@angular/core';
 import * as angularCompiler from '@angular/compiler';
 import * as angularCommon from '@angular/common';
+
 import * as angularBannerSlider from 'angular-banner-slider';
+import { PluginsService } from './plugins.service';
+import { PluginDTO } from '../types/pluginDTO.interface';
+import { LoadedPluginsService } from './loaded-plugins.service';
+import * as pluginsCommonLibraries from '@plugins/common-libraries';
+import { removePlugin } from '@plugins/common-libraries';
 
 declare const System: any;
 
 @Injectable({ providedIn: 'root' })
 export class PluginsLoaderService {
   private readonly document = inject(DOCUMENT);
+  private readonly pluginsService = inject(PluginsService);
+  private readonly loadedPluginsService = inject(LoadedPluginsService);
   private readonly rendererFactory = inject(RendererFactory2);
   private readonly renderer = this.rendererFactory.createRenderer(null, null);
 
   public loadPlugins() {
-    this.loadPluginScript('plugin-heading');
-    this.loadPluginScript('plugin-banner-slider');
-    this.loadPluginScript('plugin-banner');
-    this.loadPluginScript('plugin-contact-info');
-    this.loadPluginScript('plugin-list-of-products');
-    this.loadPluginScript('plugin-logo');
     this.loadSystemJsScript().addEventListener('load', () => {
       System.addImportMap({
         imports: {
@@ -36,6 +37,24 @@ export class PluginsLoaderService {
       System.set('app:@angular/compiler', angularCompiler);
       System.set('app:@angular/common', angularCommon);
       System.set('app:angular-banner-slider', angularBannerSlider);
+
+      this.pluginsService.installedPlugins$.subscribe((plugins: PluginDTO[]) => {
+        const installedSlugs = plugins.map((plugin) => plugin.slug);
+        const loadedPluginsMap = this.loadedPluginsService.getLoadedPluginsSync();
+        const loadedSlugs = Object.keys(loadedPluginsMap);
+
+        installedSlugs.forEach((installedSlug) => {
+          if (!loadedPluginsMap[installedSlug]) {
+            System.import(`/assets/${installedSlug}.mjs`);
+          }
+        });
+        loadedSlugs.forEach((loadedSlug) => {
+          if (!installedSlugs.includes(loadedSlug)) {
+            System.delete(System.resolve(`/assets/${loadedSlug}.mjs`));
+            removePlugin(loadedSlug);
+          }
+        });
+      });
     });
   }
 
@@ -45,10 +64,6 @@ export class PluginsLoaderService {
     scriptElement.setAttribute('type', type);
     this.renderer.appendChild(this.document.body, scriptElement);
     return scriptElement;
-  }
-
-  private loadPluginScript(slug: string) {
-    return this.addScriptToBody(`/assets/${slug}.mjs`, 'systemjs-module');
   }
 
   private loadSystemJsScript() {
